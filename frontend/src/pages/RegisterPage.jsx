@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { registerUser } from '../api/authAPI';
+// Import social media icons
+import { FcGoogle } from 'react-icons/fc';        // Google icon
+import { FaFacebookF, FaApple } from 'react-icons/fa';  // Facebook and Apple icons
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -31,21 +34,24 @@ const RegisterPage = () => {
       <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
         <h1 className="text-3xl font-bold text-center mb-6">Register</h1>
 
-        {/* Social Media Buttons */}
-        <div className="flex justify-center gap-4 mb-4">
-          <button className="flex-1 bg-gray-200 text-black py-2 rounded-lg hover:bg-gray-300">
-            Continue with Google
-          </button>
-          <button className="flex-1 bg-gray-200 text-black py-2 rounded-lg hover:bg-gray-300">
-            Continue with Facebook
-          </button>
-          <button className="flex-1 bg-gray-200 text-black py-2 rounded-lg hover:bg-gray-300">
-            Continue with Apple
-          </button>
-        </div>
+        {/* Social Media Buttons with Icons */}
+       
+<div className="flex justify-center gap-4 mb-4">
+  <button className="flex items-center justify-center w-20 h-20 bg-gray-200 rounded-lg hover:bg-gray-300">
+    <FcGoogle size={32} />
+  </button>
+  <button className="flex items-center justify-center w-20 h-20 bg-gray-200 rounded-lg hover:bg-gray-300">
+    <FaFacebookF size={32} className="text-blue-600" />
+  </button>
+  <button className="flex items-center justify-center w-20 h-20 bg-gray-200 rounded-lg hover:bg-gray-300">
+    <FaApple size={32} />
+  </button>
+</div>
+
 
         <div className="text-center text-gray-500 mb-4">or register with your</div>
 
+        {/* Registration Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="email"
@@ -115,3 +121,4 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
+
